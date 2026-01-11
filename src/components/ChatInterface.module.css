@@ -118,6 +118,17 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
 }
 
+.bubble img {
+    max-width: 120px !important;
+    max-height: 120px !important;
+    width: 120px !important;
+    height: 120px !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+    display: block !important;
+    margin-bottom: 8px;
+}
+
 .messageRow.model .bubble {
     background: white;
     color: #2D3748;
@@ -145,10 +156,15 @@
     align-items: center;
     background: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(0, 0, 0, 0.05);
-    border-radius: 28px;
-    padding: 8px 8px 8px 20px;
+    background: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    /* Softer shadow */
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    gap: 8px;
+    /* Spacing between elements */
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
 .inputContainer:focus-within {
@@ -158,15 +174,34 @@
     background: white;
 }
 
+.iconButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.iconButton:hover {
+    background: #f0f0f0;
+}
+
+.iconButton:active {
+    transform: scale(0.95);
+}
+
 .input {
     flex: 1;
     border: none;
-    background: transparent;
-    padding: 6px 0;
-    font-size: 16px;
     outline: none;
-    color: #2D3748;
-
+    font-size: 15px;
+    background: transparent;
+    padding: 8px 0;
+    color: #333;
 }
 
 .input::placeholder {
