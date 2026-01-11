@@ -1,0 +1,21 @@
+{
+    "name": "蝶可变DKB - 咩总",
+    "short_name": "咩总",
+    "description": "蝶可变DKB 首席顾问总监 智能医美咨询",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#FF8FAB",
+    "theme_color": "#FF8FAB",
+    "icons": [
+        {
+            "src": "/icon.jpg",
+            "sizes": "192x192",
+            "type": "image/jpeg"
+        },
+        {
+            "src": "/apple-icon.jpg",
+            "sizes": "512x512",
+            "type": "image/jpeg"
+        }
+    ]
+}

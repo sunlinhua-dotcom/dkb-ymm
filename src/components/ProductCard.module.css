@@ -1,0 +1,84 @@
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-top: 12px;
+    box-shadow: 0 4px 15px rgba(255, 143, 171, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header {
+    background: linear-gradient(90deg, #FF8FAB 0%, #FB6F92 100%);
+    padding: 10px 16px;
+}
+
+.title {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.body {
+    padding: 16px;
+}
+
+.explanation {
+    font-size: 13px;
+    color: #4A5568;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    background: #FFF0F3;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.priceContainer {
+    display: flex;
+    background: #F7FAFC;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.priceItem {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.divider {
+    width: 1px;
+    background: #E2E8F0;
+    margin: 0 10px;
+}
+
+.priceLabel {
+    font-size: 10px;
+    color: #718096;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+}
+
+.priceValue {
+    font-size: 15px;
+    font-weight: 700;
+    color: #2D3748;
+    font-family: 'SF Pro Text', sans-serif;
+    /* Monospaced digits usually look better */
+}
