@@ -1,0 +1,29 @@
+Note: Unnecessary use of -X or --request, POST is already inferred.
+* Host localhost:3000 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying [::1]:3000...
+* Connected to localhost (::1) port 3000
+> POST /api/chat HTTP/1.1
+> Host: localhost:3000
+> User-Agent: curl/8.7.1
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 36
+> 
+} [36 bytes data]
+* upload completely sent off: 36 bytes
+100    36    0     0  100    36      0     29  0:00:01  0:00:01 --:--:--    29100    36    0     0  100    36      0     16  0:00:02  0:00:02 --:--:--    16100    36    0     0  100    36      0     11  0:00:03  0:00:03 --:--:--    11100    36    0     0  100    36      0      8  0:00:04  0:00:04 --:--:--     8100    36    0     0  100    36      0      6  0:00:06  0:00:05  0:00:01     6< HTTP/1.1 200 OK
+< vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch
+< content-type: application/json
+< Date: Sun, 11 Jan 2026 15:31:24 GMT
+< Connection: keep-alive
+< Keep-Alive: timeout=5
+< Transfer-Encoding: chunked
+< 
+100    36    0     0  100    36      0      6  0:00:06  0:00:05  0:00:01     0{ [415 bytes data]
+100   439    0   403  100    36     70      6  0:00:06  0:00:05  0:00:01   116
+* Connection #0 to host localhost left intact
+{"response":"亲亲你好呀！✨ 我是你的专属美学顾问咩总。🌸 \n\n很高兴能在这里遇见追求精致的你。无论是想要如星辰般闪耀的双眸，还是挺拔俏丽的美鼻，咩总都会用最专业的建议陪你一起变美哦。\n\n宝贝今天想了解哪方面的项目呢？无论是眼部、鼻部、还是身材管理，都可以尽管开口问我哟！💉💖"}
