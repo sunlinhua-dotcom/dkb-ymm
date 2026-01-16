@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "咩总 - 蝶可变DKB 首席顾问",
     description: "蝶可变DKB医美医院首席顾问总监 - 咩总。AI智能面诊，为您提供专业的医美整形咨询。",
-    images: ['/opengraph-image.jpg'],
+    images: ['/logo.jpg'],
     type: 'website',
   },
   // file-based metadata (icon.jpg, apple-icon.jpg, opengraph-image.jpg) will be automatically picked up
