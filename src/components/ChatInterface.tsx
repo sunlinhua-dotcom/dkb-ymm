@@ -49,8 +49,21 @@ export default function ChatInterface() {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     };
 
+    // Scroll to show the start of the latest message (better for long responses)
+    const scrollToLatestMessage = () => {
+        if (lastMessageRef.current) {
+            lastMessageRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
+    const lastMessageRef = useRef<HTMLDivElement>(null);
+
     useEffect(() => {
-        scrollToBottom();
+        // Small delay to ensure DOM is updated before scrolling
+        const timer = setTimeout(() => {
+            scrollToLatestMessage();
+        }, 100);
+        return () => clearTimeout(timer);
     }, [messages]);
 
     // Timer and rotating message effect
@@ -208,7 +221,11 @@ export default function ChatInterface() {
             {/* Messages */}
             <div className={styles.messagesWindow}>
                 {messages.map((msg, idx) => (
-                    <div key={idx} className={`${styles.messageRow} ${msg.role === 'user' ? styles.user : styles.model}`}>
+                    <div
+                        key={idx}
+                        ref={idx === messages.length - 1 ? lastMessageRef : null}
+                        className={`${styles.messageRow} ${msg.role === 'user' ? styles.user : styles.model}`}
+                    >
                         {msg.role === 'model' && (
                             <img src="/images/avatar.jpg" alt="Avatar" className="w-8 h-8 rounded-full mr-2 self-end mb-1 border border-white shadow-sm" style={{ width: 32, height: 32 }} />
                         )}
