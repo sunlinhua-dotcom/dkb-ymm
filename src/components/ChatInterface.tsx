@@ -44,6 +44,7 @@ export default function ChatInterface() {
     const [thinkingIndex, setThinkingIndex] = useState(0);
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
+    const lastMessageRef = useRef<HTMLDivElement>(null);
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -55,8 +56,6 @@ export default function ChatInterface() {
             lastMessageRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     };
-
-    const lastMessageRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         // Small delay to ensure DOM is updated before scrolling
