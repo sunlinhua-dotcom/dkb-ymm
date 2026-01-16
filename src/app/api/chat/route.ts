@@ -123,7 +123,15 @@ export async function POST(req: Request) {
 
         if (!response.ok) {
             const errText = await response.text();
-            console.error("Upstream API Error:", errText);
+            console.error("Upstream API Error:", response.status, errText);
+
+            // More specific error messages
+            if (response.status === 429) {
+                return NextResponse.json({ response: "亲爱的稍等一下～ 咩总刚才接待的客人太多了，让我喘口气 😅 请30秒后再试试" });
+            }
+            if (response.status === 413) {
+                return NextResponse.json({ response: "哎呀，这张照片太大啦！换一张小一点的试试？📸" });
+            }
             throw new Error(`API returned ${response.status}: ${errText}`);
         }
 
@@ -133,6 +141,13 @@ export async function POST(req: Request) {
         return NextResponse.json({ response: reply });
     } catch (error) {
         console.error("Gemini API Error:", error);
+
+        // Check for timeout or network errors
+        const errorMessage = error instanceof Error ? error.message : String(error);
+        if (errorMessage.includes('timeout') || errorMessage.includes('ETIMEDOUT')) {
+            return NextResponse.json({ response: "网络有点慢～ 咩总正在努力连接中，请再试一次 🌸" });
+        }
+
         return NextResponse.json(
             { error: "咩总现在有点忙，请稍后再试～" },
             { status: 500 }
