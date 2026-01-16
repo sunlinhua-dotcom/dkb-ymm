@@ -21,7 +21,7 @@ interface Message {
 
 export default function ChatInterface() {
     const [messages, setMessages] = useState<Message[]>([
-        { role: 'model', text: '你好呀！我是蝶可变DKB的首席顾问总监 咩总 ✨\n欢迎来到这里～ 有什么变美计划想聊聊吗？🌸' }
+        { role: 'model', text: '嗨，亲爱的～ 我是咩总，蝶可变DKB的首席面诊专家 ✨\n\n我能通过一张照片，3秒内看透你的骨相和皮相，精准定位变美的关键点。\n\n📸 **传一张正面/侧面照**，我来帮你做个专业面诊\n💬 或者直接告诉我你想改善什么，我给你量身定制方案\n\n放心，这里只有专业建议，没有套路推销 🌸' }
     ]);
     const [inputValue, setInputValue] = useState('');
     const [isLoading, setIsLoading] = useState(false);
