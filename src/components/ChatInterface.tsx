@@ -39,7 +39,9 @@ export default function ChatInterface() {
     ]);
     const [inputValue, setInputValue] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const [selectedImage, setSelectedImage] = useState<string | null>(null); // State for image preview
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+    const [elapsedSeconds, setElapsedSeconds] = useState(0);
+    const [thinkingIndex, setThinkingIndex] = useState(0);
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -50,6 +52,30 @@ export default function ChatInterface() {
     useEffect(() => {
         scrollToBottom();
     }, [messages]);
+
+    // Timer and rotating message effect
+    useEffect(() => {
+        if (!isLoading) {
+            setElapsedSeconds(0);
+            setThinkingIndex(0);
+            return;
+        }
+
+        // Count seconds
+        const timerInterval = setInterval(() => {
+            setElapsedSeconds(prev => prev + 1);
+        }, 1000);
+
+        // Rotate messages every 3 seconds
+        const messageInterval = setInterval(() => {
+            setThinkingIndex(prev => (prev + 1) % thinkingMessages.length);
+        }, 3000);
+
+        return () => {
+            clearInterval(timerInterval);
+            clearInterval(messageInterval);
+        };
+    }, [isLoading]);
 
     const handleImageSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
@@ -222,7 +248,10 @@ export default function ChatInterface() {
                         <img src="/images/avatar.jpg" alt="Avatar" className="w-8 h-8 rounded-full mr-2 self-end mb-1 border border-white shadow-sm" style={{ width: 32, height: 32 }} />
                         <div className={styles.bubble}>
                             <div className={styles.thinkingText}>
-                                {thinkingMessages[Math.floor(Math.random() * thinkingMessages.length)]}
+                                {thinkingMessages[thinkingIndex]}
+                            </div>
+                            <div className={styles.timer}>
+                                已等待 {elapsedSeconds}s
                             </div>
                         </div>
                     </div>
