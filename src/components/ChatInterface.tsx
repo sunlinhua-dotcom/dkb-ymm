@@ -19,9 +19,23 @@ interface Message {
     imageUrl?: string; // Add support for image display
 }
 
+// Random thinking messages for loading state
+const thinkingMessages = [
+    '正在用我的火眼金睛分析中... 👀',
+    '让我仔细看看你的骨相... 🔍',
+    '嗯...有意思，让我想想最适合你的方案 💭',
+    '正在调用10年临床经验数据库... 🧠',
+    '等我3秒，马上给你专业分析 ✨',
+    '在认真看你的脸，别催～ 🌸',
+    '正在计算最佳变美路径... 📐',
+    '哇，让我好好研究一下 💖',
+    '思考中...美丽需要认真对待 🦋',
+    '正在为你定制专属方案... 💫'
+];
+
 export default function ChatInterface() {
     const [messages, setMessages] = useState<Message[]>([
-        { role: 'model', text: '嗨，亲爱的～ 我是咩总，蝶可变DKB的首席面诊专家 ✨\n\n我能通过一张照片，3秒内看透你的骨相和皮相，精准定位变美的关键点。\n\n📸 **传一张正面/侧面照**，我来帮你做个专业面诊\n💬 或者直接告诉我你想改善什么，我给你量身定制方案\n\n放心，这里只有专业建议，没有套路推销 🌸' }
+        { role: 'model', text: '嗨亲爱的～ 我是咩总 ✨\n\n不是普通客服哦，我是蝶可变DKB的首席面诊专家，看过5万张脸，一眼就能看透你的骨相和皮相 👀\n\n📸 发张照片，我来帮你做个专业面诊\n💬 或者告诉我你的变美困扰\n\n准备好被我"看透"了吗？😏' }
     ]);
     const [inputValue, setInputValue] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -207,10 +221,8 @@ export default function ChatInterface() {
                     <div className={`${styles.messageRow} ${styles.model}`}>
                         <img src="/images/avatar.jpg" alt="Avatar" className="w-8 h-8 rounded-full mr-2 self-end mb-1 border border-white shadow-sm" style={{ width: 32, height: 32 }} />
                         <div className={styles.bubble}>
-                            <div className={styles.typingIndicator}>
-                                <div className={styles.dot}></div>
-                                <div className={styles.dot}></div>
-                                <div className={styles.dot}></div>
+                            <div className={styles.thinkingText}>
+                                {thinkingMessages[Math.floor(Math.random() * thinkingMessages.length)]}
                             </div>
                         </div>
                     </div>
