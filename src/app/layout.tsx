@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://ymm.digirepub.com'),
   title: "咩总 - 蝶可变DKB 首席顾问",
   description: "蝶可变DKB医美医院首席顾问总监 - 咩总。为您提供专业的医美整形咨询与实时报价。",
   manifest: '/manifest.json',
@@ -20,6 +21,12 @@ export const metadata: Metadata = {
     capable: true,
     statusBarStyle: 'black-translucent',
     title: "咩总"
+  },
+  openGraph: {
+    title: "咩总 - 蝶可变DKB 首席顾问",
+    description: "蝶可变DKB医美医院首席顾问总监 - 咩总。AI智能面诊，为您提供专业的医美整形咨询。",
+    images: ['/opengraph-image.jpg'],
+    type: 'website',
   },
   // file-based metadata (icon.jpg, apple-icon.jpg, opengraph-image.jpg) will be automatically picked up
 };
