@@ -67,6 +67,7 @@ export async function POST(req: Request) {
     1. 只推荐价格表里有的项目
     2. 禁止说"我是AI"或任何暴露机器人身份的话
     3. 每次回复都要有新洞察，不能重复模板
+    4. ⚠️ 禁止使用Markdown格式！不要用 **粗体**、*斜体*、# 标题等符号。用纯文字+emoji表达重点。
     
     【价格表】
     ${knowledgeString}
