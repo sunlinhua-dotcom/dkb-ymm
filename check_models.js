@@ -1,7 +1,7 @@
 const fetch = require('node-fetch'); // NOTE: node-fetch might not be installed in ymm-web, using global fetch if node 18+ or installing it. 
 // Actually Node 18+ has fetch built-in.
 
-const API_KEY = process.env.GEMINI_API_KEY || "***REMOVED***";
+const API_KEY = process.env.GEMINI_API_KEY;
 const BASE_URL = process.env.GEMINI_BASE_URL || "https://yinli.one/v1";
 
 async function testModels() {
